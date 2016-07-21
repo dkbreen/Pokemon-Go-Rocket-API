@@ -30,6 +30,8 @@ namespace PokemonGo.RocketAPI.Login
                 tokenResponse = await PollSubmittedToken(deviceCodeResponse.device_code);
             } while (tokenResponse.access_token == null || tokenResponse.refresh_token == null);
             Console.WriteLine("Logged in Google Account..");
+            Console.WriteLine("Refresh Token: " + tokenResponse.refresh_token);
+            Console.WriteLine("Copy this token into the config file to log in for longer than 30 minutes.");
             return tokenResponse;
         }
 
